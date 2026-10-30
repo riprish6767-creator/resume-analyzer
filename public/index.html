@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f2">
+    <meta name="description" content="Turn your resume into a clear, practical next step for your career.">
+    <title>CareerCanvas — Your next chapter starts here</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CareerCanvas home">
+        <span class="brand-mark" aria-hidden="true">c.</span>
+        <span>career<span class="brand-light">canvas</span></span>
+      </a>
+      <div class="topbar-note"><span class="status-dot"></span> YOUR NEXT CHAPTER, IN FOCUS</div>
+      <a class="topbar-link" href="#how-it-works">How it works <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="sparkle" aria-hidden="true">✳</span> YOUR PERSONAL CAREER COMPASS</div>
+          <h1>Make your next<br>move feel <span>clear.</span></h1>
+          <p>Your experience has more possibilities than you think. Find the roles, skills and next steps that fit your story.</p>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true"><span>A</span><span>M</span><span>R</span><span>+</span></div>
+            <span>Thoughtful guidance. Your choices.</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="art-center"><span>✳</span></div>
+          <div class="art-chip chip-one"><span class="chip-icon mint">↗</span><span><b>Paths to explore</b><small>Built around your strengths</small></span></div>
+          <div class="art-chip chip-two"><span class="chip-icon peach">✦</span><span><b>Your next steps</b><small>Small moves. Real momentum.</small></span></div>
+          <div class="art-chip chip-three"><span class="chip-icon blue">◎</span><span><b>Made for you</b><small>Not one-size-fits-all</small></span></div>
+          <span class="art-orb orb-a"></span><span class="art-orb orb-b"></span><span class="art-orb orb-c"></span>
+          <span class="art-sparkle sparkle-one">✳</span><span class="art-sparkle sparkle-two">✳</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Resume analyzer">
+        <div class="input-panel">
+          <div class="section-kicker"><span>01</span> START WITH YOUR STORY</div>
+          <div class="panel-heading">
+            <div>
+              <h2>Start with your story.</h2>
+              <p>Share what you’ve done. We’ll help you see where it could take you.</p>
+            </div>
+            <span class="private-badge"><span aria-hidden="true">✦</span> Not saved by us</span>
+          </div>
+          <form id="resume-form">
+            <label for="resume">Your resume content</label>
+            <div class="textarea-wrap">
+              <textarea id="resume" name="resume" maxlength="20000" required placeholder="Paste your experience, projects, education and skills here…"></textarea>
+              <span class="character-count" id="character-count">0 / 20,000</span>
+            </div>
+            <div class="form-actions">
+              <label class="upload-button" for="resume-file"><span aria-hidden="true">↑</span> Upload .txt</label>
+              <input id="resume-file" type="file" accept=".txt,text/plain" hidden>
+              <span class="file-note" id="file-note">Not saved by CareerCanvas.</span>
+              <button type="submit" class="analyze-button" id="analyze-button">Show me my possibilities <span aria-hidden="true">→</span></button>
+            </div>
+            <button type="button" class="sample-link" id="sample-button">Not ready to paste? Try a sample resume <span aria-hidden="true">↗</span></button>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+          </form>
+        </div>
+        <aside class="aside-note">
+          <span class="note-icon" aria-hidden="true">✳</span>
+          <p><strong>A little direction goes a long way.</strong> Get thoughtful suggestions based on what you’ve already done — not just what’s missing.</p>
+          <span class="note-caption">BUILT FOR THE JOURNEY, NOT JUST THE JOB</span>
+        </aside>
+      </section>
+
+      <section class="results" id="results" aria-live="polite" hidden>
+        <div class="results-topline">
+          <div><div class="section-kicker"><span>02</span> YOUR CAREER SNAPSHOT</div><h2>A few things stand out.</h2></div>
+          <span class="mode-badge" id="mode-badge"></span>
+        </div>
+        <article class="summary-card">
+          <div class="summary-icon" aria-hidden="true">✳</div>
+          <div><span class="card-label">YOUR STORY, AT A GLANCE</span><p id="summary-text"></p></div>
+        </article>
+        <div class="results-grid">
+          <article class="result-card jobs-card">
+            <div class="card-heading"><div><span class="card-label">DIRECTIONS TO EXPLORE</span><h3>Where you could go</h3></div><span class="heading-icon" aria-hidden="true">↗</span></div>
+            <div id="jobs-list" class="jobs-list"></div>
+          </article>
+          <article class="result-card skills-card">
+            <div class="card-heading"><div><span class="card-label">ROOM TO GROW</span><h3>Skills to explore</h3></div><span class="heading-icon" aria-hidden="true">✳</span></div>
+            <div id="skills-list" class="skills-list"></div>
+          </article>
+        </div>
+        <div class="results-grid lower-grid">
+          <article class="result-card">
+            <div class="card-heading"><div><span class="card-label">YOUR NEXT SMALL STEPS</span><h3>Learning suggestions</h3></div><span class="heading-icon" aria-hidden="true">↗</span></div>
+            <div id="learning-list" class="suggestion-list"></div>
+          </article>
+          <article class="result-card">
+            <div class="card-heading"><div><span class="card-label">MAKE YOUR STORY SHINE</span><h3>Resume improvements</h3></div><span class="heading-icon" aria-hidden="true">✦</span></div>
+            <div id="improvements-list" class="suggestion-list"></div>
+          </article>
+        </div>
+        <p class="results-disclaimer">A starting point, not a verdict. Recommendations are suggestions to help you explore — your career is yours to shape.</p>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div class="how-intro"><div class="section-kicker"><span>✳</span> A LITTLE CLARITY, A LOT OF POSSIBILITY</div><h2>Getting started<br>is the hardest part.</h2></div>
+        <div class="steps">
+          <div class="step"><span class="step-number">01</span><div><h3>Share what you’ve done</h3><p>Paste your resume or try our sample. No perfect formatting required.</p></div></div>
+          <div class="step"><span class="step-number">02</span><div><h3>See what stands out</h3><p>Explore roles that connect with your skills and experiences.</p></div></div>
+          <div class="step"><span class="step-number">03</span><div><h3>Choose your next step</h3><p>Get practical ideas for learning and making your resume stronger.</p></div></div>
+        </div>
+      </section>
+    </main>
+    <footer><a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">c.</span><span>career<span class="brand-light">canvas</span></span></a><span>Made for the next step — wherever it leads.</span><a href="#resume-form">Back to the beginning ↑</a></footer>
+  </body>
+</html>
